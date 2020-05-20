@@ -4,6 +4,7 @@ import './qa_parent.css'
 
 class QaParent extends React.Component{
 
+    
     render(){
         return(
             <div>
