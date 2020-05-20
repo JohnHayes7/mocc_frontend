@@ -3,11 +3,20 @@ import { useHistory } from 'react-router-dom'
 
 const ProjectCard = () =>{
 
+    const myDivToFocus = React.createRef()
+
     const history = useHistory();
 
     const clickHandler = () =>{
-        console.log("clicked")
+        console.log(myDivToFocus)
         history.push('/qa-projects/test-1')
+        if(myDivToFocus.current){
+            myDivToFocus.current.scrollIntoView({ 
+               behavior: "smooth", 
+               block: "nearest"
+            })
+        }
+
     }
 
     return(
