@@ -1,28 +1,27 @@
 import React from 'react'
 import Header from './Header'
+import ProjectCard from './ProjectCard'
 import './qa_parent.css'
+import { Redirect } from 'react-router-dom'
 
 class QaParent extends React.Component{
 
-    
+    constructor(){
+        super()
+    }
+
+    clickHandler = () =>{
+        console.log("clicked")
+       return window.history.push('/qa-projects/test-1')
+    }
+
     render(){
         return(
             <div>
                 <Header />
                 <h1>QA HOME</h1>
                 <div id="projects">
-                    <div className="project-box">
-                        <span className="proj-title">Test1</span>
-                    </div>
-                    <div className="project-box">
-                        <span className="proj-title">Test2</span>
-                    </div>
-                    <div className="project-box">
-                        <span className="proj-title">Test3</span>
-                    </div>
-                    <div className="project-box">
-                        <span className="proj-title">Test4</span>
-                    </div>
+                    <ProjectCard clickHandler = {this.clickHandler}/>
                 </div>
            </div>
         )
