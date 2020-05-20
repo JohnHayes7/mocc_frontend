@@ -15,7 +15,7 @@ function App() {
         <Route exact path="/" component = {LandingPage} />
         <Route path ="/qa-projects" component = {QaParent} />
         <Route path ="/premiers" component = {Premiers} />
-        <Route path ="/qa-projects/test-1" component = {QaProject}/>
+        <Route exact path ="/qa-projects/test-1" component = {QaProject}/>
       </div>
     </Router>
   );

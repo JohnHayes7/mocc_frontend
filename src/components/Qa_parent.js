@@ -4,16 +4,12 @@ import ProjectCard from './ProjectCard'
 import './qa_parent.css'
 import { Redirect } from 'react-router-dom'
 
+
 class QaParent extends React.Component{
 
-    constructor(){
-        super()
-    }
+   
 
-    clickHandler = () =>{
-        console.log("clicked")
-       return window.history.push('/qa-projects/test-1')
-    }
+    
 
     render(){
         return(
@@ -21,7 +17,7 @@ class QaParent extends React.Component{
                 <Header />
                 <h1>QA HOME</h1>
                 <div id="projects">
-                    <ProjectCard clickHandler = {this.clickHandler}/>
+                    <ProjectCard />
                 </div>
            </div>
         )
