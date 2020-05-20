@@ -3,7 +3,7 @@ import './qa_project.css'
 class QaProject extends React.Component{
     render(){
         return(
-            <div className='project-div'>QA Project: Test 1</div>
+            <div className='project-div'><h1>QA Project: Test 1</h1></div>
         )
     }
 

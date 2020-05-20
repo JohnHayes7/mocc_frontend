@@ -1,4 +1,6 @@
 .project-div{
+    margin: 1%;
+    margin-top: 2%;
     height: 1000px;
-    border: 1px solid black;
+    border: 2px solid rgba(0,0,0,0.2);
 }

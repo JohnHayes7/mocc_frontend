@@ -15,7 +15,7 @@ class QaParent extends React.Component{
         return(
             <div>
                 <Header />
-                <h1>QA HOME</h1>
+                <h1>QA Projects</h1>
                 <div id="projects">
                     <ProjectCard />
                 </div>
