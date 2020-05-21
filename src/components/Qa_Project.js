@@ -2,6 +2,12 @@ import React from 'react'
 import './qa_project.css'
 class QaProject extends React.Component{
 
+    constructor(){
+        super()
+        this.state = {
+            project_name: "QA PROJECT: TEST 1"
+        }
+    }
 
    
 
@@ -12,7 +18,7 @@ class QaProject extends React.Component{
         return(
             <div className='project-div'>
                 <div className="project-header">
-                    <h1>QA Project: Test 1</h1>
+                    <h1>{this.state.project_name}</h1>
                     <div id="login-opts">
                         <span><strong>Login as Reviewer</strong></span>
                         <br></br>
