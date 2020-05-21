@@ -1,5 +1,7 @@
 import React from 'react'
 import './qa_project.css'
+import { connect } from 'react-redux'
+
 class QaProject extends React.Component{
 
     constructor(){
@@ -32,4 +34,8 @@ class QaProject extends React.Component{
 
 }
 
-export default QaProject
+const mapDispatchToProps = dispatch => ({
+    fetchProjectSheet: () => dispatch(fetchProjectSheet())
+})
+
+export default connect (0, mapDispatchToProps)(QaProject)

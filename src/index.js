@@ -9,10 +9,16 @@ import thunk from 'redux-thunk'
 import manageQaProject from './reducers/manageQaProject'
 import { combineReducers } from 'redux';
 
+const rootReducer = combineReducers({
+  qaProject: manageQaProject
+})
+
+let store = createStore(rootReducer, applyMiddleware(thunk))
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store = {store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
