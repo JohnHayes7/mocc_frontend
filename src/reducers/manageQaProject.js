@@ -4,11 +4,13 @@ export default function manageQaProject(state={
 }, action) {
 switch(action.type){
 
-    // case 'LOADING_FAN':
-    // return {
-    //     ...state,
-    //     loading: true
-    // }
+
+    case 'LOADING_PROJECT_DATA':
+        return {
+            ...state,
+            loading: true
+        }
+    
 
     // case 'LOGIN_FAN':
     //    const loginFan = {

@@ -1,6 +1,7 @@
 import React from 'react'
 import './qa_project.css'
 import { connect } from 'react-redux'
+import { fetchTrackingSheetData } from '../actions/fetchTrackingSheetData'
 
 class QaProject extends React.Component{
 
@@ -14,9 +15,6 @@ class QaProject extends React.Component{
    
 
     render(){
-        const GSHEETS_API_KEY = process.env.REACT_APP_GOOGLESHEETS_API_KEY
-        const GSHEETS_CLIENT_SECRET = process.env.REACT_APP_GOOGLESHEETS_CLIENT_SECRET
-        
         return(
             <div className='project-div'>
                 <div className="project-header">
@@ -35,7 +33,7 @@ class QaProject extends React.Component{
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchProjectSheet: () => dispatch(fetchProjectSheet())
+    fetchTrackingSheetData: () => dispatch(fetchTrackingSheetData())
 })
 
 export default connect (0, mapDispatchToProps)(QaProject)
