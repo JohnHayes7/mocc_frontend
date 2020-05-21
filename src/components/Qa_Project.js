@@ -1,7 +1,14 @@
 import React from 'react'
 import './qa_project.css'
 class QaProject extends React.Component{
+
+
+   
+
     render(){
+        const GSHEETS_API_KEY = process.env.REACT_APP_GOOGLESHEETS_API_KEY
+        const GSHEETS_CLIENT_SECRET = process.env.REACT_APP_GOOGLESHEETS_CLIENT_SECRET
+        
         return(
             <div className='project-div'>
                 <div className="project-header">
