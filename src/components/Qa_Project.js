@@ -18,6 +18,7 @@ class QaProject extends React.Component{
     }
 
     render(){
+        console.log(this.props.sheetData)
         return(
             <div className='project-div'>
                 <div className="project-header">
@@ -29,14 +30,22 @@ class QaProject extends React.Component{
                         <span><strong>Login as Admin</strong></span>
                     </div>
                 </div>
+                {/* {this.props.qaProject.loading ? <h1>Loading....</h1>:<h1>Loaded...</h1>} */}
             </div>
         )
     }
 
 }
 
+const mapStateToProps = state => {
+    // console.log(state)
+    return {
+        sheetData: state    
+    }
+}
+
 const mapDispatchToProps = dispatch => ({
     fetchTrackingSheetData: () => dispatch(fetchTrackingSheetData())
 })
 
-export default connect (0, mapDispatchToProps)(QaProject)
+export default connect (mapStateToProps, mapDispatchToProps)(QaProject)

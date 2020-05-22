@@ -10,6 +10,12 @@ switch(action.type){
             ...state,
             loading: true
         }
+
+    case 'RETURNED_SHEET_DATA':
+        // console.log(action.sheetData)
+        return{
+           ...state
+        }
     
 
     // case 'LOGIN_FAN':
