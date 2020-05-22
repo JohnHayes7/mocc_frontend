@@ -13,6 +13,9 @@ class QaProject extends React.Component{
     }
 
    
+    componentDidMount(){
+        this.props.fetchTrackingSheetData()
+    }
 
     render(){
         return(

@@ -2,10 +2,11 @@ export const fetchTrackingSheetData = ()=> {
 
     const GSHEETS_API_KEY = process.env.REACT_APP_GOOGLESHEETS_API_KEY
     const GSHEETS_CLIENT_SECRET = process.env.REACT_APP_GOOGLESHEETS_CLIENT_SECRET
+    const GSHEETS_SHEET_ID = process.env.REACT_APP_QA_TEST_SHEET_1_ID
 
     return (dispatch) => {
         dispatch({type: 'LOADING_PROJECT_DATA'})
-        fetch('').then(response => response.json())
+        fetch(`https://sheets.googleapis.com//v4/spreadsheets/${GSHEETS_SHEET_ID}/values/2:9?key= ${GSHEETS_API_KEY}`).then(response => response.json())
         .then(rxData => {
             console.log(rxData)
         })
