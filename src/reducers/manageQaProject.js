@@ -1,20 +1,31 @@
 export default function manageQaProject(state={
     loading: false,
-    name: "Test 1"
+    status: "Initiated",
+    name: "Test 1",
+    videos: []
 }, action) {
 switch(action.type){
 
 
     case 'LOADING_PROJECT_DATA':
+        // debugger
         return {
             ...state,
             loading: true
         }
 
     case 'RETURNED_SHEET_DATA':
-        // console.log(action.sheetData)
+        
+        const videoAttrs = action.sheetData[0]
+        const videoData = {}
+        videoAttrs.forEach(attr => {
+            videoData[attr] = null
+        });
+
+        debugger
         return{
-           ...state
+           ...state,
+           loading: false
         }
     
 

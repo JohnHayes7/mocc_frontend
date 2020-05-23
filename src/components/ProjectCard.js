@@ -8,7 +8,7 @@ const ProjectCard = () =>{
     const history = useHistory();
 
     const clickHandler = () =>{
-        console.log(myDivToFocus)
+        // console.log(myDivToFocus)
         history.push('/qa-projects/test-1')
         if(myDivToFocus.current){
             myDivToFocus.current.scrollIntoView({ 

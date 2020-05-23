@@ -18,7 +18,7 @@ class QaProject extends React.Component{
     }
 
     render(){
-        console.log(this.props.sheetData)
+        // console.log(this.props.sheetData)
         return(
             <div className='project-div'>
                 <div className="project-header">
