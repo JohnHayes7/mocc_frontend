@@ -16,13 +16,24 @@ switch(action.type){
 
     case 'RETURNED_SHEET_DATA':
         
-        const videoAttrs = action.sheetData[0]
-        const videoData = {}
-        videoAttrs.forEach(attr => {
-            videoData[attr] = null
-        });
+        const videoAttrs = action.sheetData.shift()
+        const videosAry = action.sheetData
+        
+        // videoAttrs.forEach(attr => {
+        //     videoData[attr] = null
+        // });
 
-        debugger
+        videosAry.forEach(video => {
+            const videoData = {}
+            videoData["Title"] = video[1]
+            videoData["Artist"] = video[2]
+            videoData["Language"] = video[10]
+            videoData["MC VOD ID"] = video[13]
+            videoData["MC_Rating"] = null
+            state.videos.push(videoData)
+        })
+
+        
         return{
            ...state,
            loading: false
