@@ -1,5 +1,6 @@
 import React from 'react'
 import './qa_project.css'
+import QaProjectInfo from './Qa_Project_Info'
 import { connect } from 'react-redux'
 import { fetchTrackingSheetData } from '../actions/fetchTrackingSheetData'
 
@@ -12,14 +13,16 @@ class QaProject extends React.Component{
         }
     }
 
+    
+
    
     componentDidMount(){
         this.props.fetchTrackingSheetData()
     }
 
     render(){
-        debugger
-        // console.log(this.props.sheetData)
+        // debugger
+        console.log(this.props.sheetData.qaProject)   
         return(
             <div className='project-div'>
                 <div className="project-header">
@@ -31,7 +34,7 @@ class QaProject extends React.Component{
                         <span><strong>Login as Admin</strong></span>
                     </div>
                 </div>
-                {/* {this.props.qaProject.loading ? <h1>Loading....</h1>:<h1>Loaded...</h1>} */}
+                {this.props.sheetData.qaProject.loading ? <h1>Loading....</h1> : <QaProjectInfo details={this.props.sheetData.qaProject}/>}
             </div>
         )
     }
