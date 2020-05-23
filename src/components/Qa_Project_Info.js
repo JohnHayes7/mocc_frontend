@@ -4,20 +4,18 @@ import React from 'react'
 const QaProjectInfo = props =>{
     console.log(props.details)
 
-    const displayProjectDetails = () => {
-        return <div>DETAILS</div>
-        // props.details.videos.forEach(video => {
-        //    return(
-        //         <div>
-        //             <h3>{video.Title}</h3>
-        //             <h4>{video.Artist}</h4>
-        //         </div>
-        //    ) 
-        // });
+    const parseProjectDetails = () => {
+       return props.details.videos.map(video => {
+           console.log(video)
+        return<div key={video.mvVodId}><h3>VODID: {video.mvVodId}</h3><h3>{video.title}</h3><h4>{video.artist}</h4></div>
+       })
+       
     }
 
     return(
-        <div>{displayProjectDetails()}</div>
+        <div>
+            {parseProjectDetails()}
+        </div>
     )
 }
 
