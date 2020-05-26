@@ -32,3 +32,12 @@
 #asset-info{
     margin-top: 3%;
 }
+
+.selected-asset-display{
+    border: 1px solid rgba(0,0,0,0.2);
+    width: 21%;
+    margin-left: 50px;
+    padding-left: 1%;
+    margin-top: 1%;
+    background-color: green;
+}
