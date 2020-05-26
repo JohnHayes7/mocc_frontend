@@ -10,14 +10,14 @@ const QaProjectInfo = props =>{
 
     
     const parseAssetDetails = () => {
-       return props.details.videos.map(video => <AssetTicket video={video}/>)       
+       return props.details.videos.map(video => <AssetTicket key={video.mvVodId} video={video}/>)       
     }
 
 
     return(
-        <div id="asset-info">
+        <form id="asset-info">
             {parseAssetDetails()}
-        </div>
+        </form>
     )
 }
 
