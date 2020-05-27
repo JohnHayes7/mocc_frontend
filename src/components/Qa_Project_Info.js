@@ -42,9 +42,9 @@ const QaProjectInfo = props =>{
         return(
             <div className="selection-div">
                 <h4>Selected Videos: {count} </h4>
-                <ul>
-                    {reviewers.map(r => <li>{r}</li>)}
-                </ul>
+                <select>
+                    {reviewers.map(r => <option value={r}>{r}</option>)}
+                </select>
             </div>
         )
     }
