@@ -23,7 +23,7 @@
 
 .asset-display{
     border: 1px solid rgba(0,0,0,0.2);
-    width: 21%;
+   
     margin-left: 10px;
     padding-left: 1%;
     margin-top: 1%;
@@ -31,13 +31,22 @@
 
 #asset-info{
     margin-top: 3%;
+    display: flex;
 }
 
 .selected-asset-display{
     border: 1px solid rgba(0,0,0,0.2);
-    width: 21%;
+   
     margin-left: 50px;
     padding-left: 1%;
     margin-top: 1%;
-    background-color:rgba(90, 199, 109, 0.521);
+    background-color:rgba(90, 199, 109, 0.521); 
+}
+
+.details-column{
+    width: 21%;
+}
+
+.asset-text{
+    width:70%
 }

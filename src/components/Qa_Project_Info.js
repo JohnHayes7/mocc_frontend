@@ -11,12 +11,16 @@ const QaProjectInfo = props =>{
     const selectedVodIds = []
     
     const addVideoToSelected = (vodId) =>{
-        selectedVodIds.push(vodId)
-        console.log(selectedVodIds)
+        if(!selectedVodIds.includes(vodId)){
+            selectedVodIds.push(vodId)
+            console.log(selectedVodIds)
+        }
     }
 
     const removeVideoFromSelected = (vodId) =>{
-        console.log(vodId)
+        const index = selectedVodIds.indexOf(vodId)
+        selectedVodIds.splice(index, 1)
+        console.log(selectedVodIds)
     }
     
 
@@ -31,7 +35,12 @@ const QaProjectInfo = props =>{
 
     return(
         <div id="asset-info">
-            {parseAssetDetails()}
+            <div className="details-column">
+                {parseAssetDetails()}
+            </div>
+            <div className="next-column">
+                More Info
+            </div>
         </div>
     )
 }

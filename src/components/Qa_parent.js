@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import ProjectCard from './ProjectCard'
 import './qa_parent.css'
-import { Redirect } from 'react-router-dom'
+
 
 
 class QaParent extends React.Component{

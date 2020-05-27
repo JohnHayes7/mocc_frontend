@@ -23,9 +23,17 @@ const AssetTicket = props =>{
    
 
      if(selected){
-        return <div className="selected-asset-display" data-id={props.video.mvVodId} onClick={event => unselect(event)}><h3>VODID: {props.video.mvVodId}</h3><h3>{props.video.title}</h3><h4>{props.video.artist}</h4></div>    
+        return  <div className="selected-asset-display" data-id={props.video.mvVodId} onClick={event => unselect(event)}>
+                    <div className="asset-text">
+                        <h3>VODID: {props.video.mvVodId}</h3><h3>{props.video.title}</h3><h4>{props.video.artist}</h4>
+                    </div>
+                </div>    
      }else{
-        return  <div className="asset-display" data-id={props.video.mvVodId} onClick={event => select(event)}><h3>VODID: {props.video.mvVodId}</h3><h3>{props.video.title}</h3><h4>{props.video.artist}</h4></div>
+        return  <div className="asset-display" data-id={props.video.mvVodId} onClick={event => select(event)}>
+                    <div className="asset-text">
+                        <h3>VODID: {props.video.mvVodId}</h3><h3>{props.video.title}</h3><h4>{props.video.artist}</h4>
+                    </div>
+                </div>
      }
 }
 
