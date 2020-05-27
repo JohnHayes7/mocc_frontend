@@ -34,35 +34,34 @@ const QaProjectInfo = props =>{
         return props.details.videos.map(video => <AssetTicket key={video.mvVodId} video={video} addVideoToSelected={addVideoToSelected} removeVideoFromSelected={removeVideoFromSelected}/>)       
      }
 
-    //  const parseReviewers = () => {
-    //      return 
-    //  }
+    const parseReviewers = () => reviewers.map(r => <option value={r}>{r}</option>)
 
-    const selectionInfo = () => {
+    const selectionInfoDiv = () => {
         return(
             <div className="selection-div">
-                <h4>Selected Videos: {count} </h4>
-                <select>
-                    {reviewers.map(r => <option value={r}>{r}</option>)}
-                </select>
+                <div id="selection-details">
+                    <h2>Selected Videos: {count} </h2>
+                </div>
+                <form id="options">
+                    Assign {count} videos to:
+                    <select>
+                        {parseReviewers()}
+                    </select>
+                    <button>Assign Videos</button>
+                </form>
+                
             </div>
         )
     }
 
     
-
-
-
-
-
-
     return(
         <div id="asset-info">
-            <div className="details-column">
+            <div className="asset-details-column">
                 {parseAssetDetails()}
             </div>
             <div className="selection-column">
-                {count > 0 ? selectionInfo() : <h4>Select Videos for Details</h4>}
+                {count > 0 ? selectionInfoDiv() : <h4>Select Videos for Details</h4>}
             </div>
         </div>
     )

@@ -44,14 +44,13 @@
     background-color:rgba(90, 199, 109, 0.521); 
 }
 
-.details-column{
+.asset-details-column{
     width: 25%;
 }
 
 .selection-column{
     width: 40%;
     margin-left: 5%;
-    
 }
 
 .asset-text{
@@ -65,4 +64,13 @@
     padding: .5%;
     background-color: rgba(50, 50, 50, 0.541);
     color: whitesmoke;
+    display: flex;
+    
+}
+
+#options{
+    padding-top: 3.8%;
+    padding-left: 1%;
+    margin-left: 100px;
+    border-left: 1px solid black;
 }
