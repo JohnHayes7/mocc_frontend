@@ -2,6 +2,11 @@ import React from 'react'
 
 const selectionInfo = props => {
 
+    const clickHandler = event => {
+        event.preventDefault()
+        console.log(props.selectedVodIds)
+
+    }
 
 
     return(
@@ -14,7 +19,7 @@ const selectionInfo = props => {
                 <select>
                     {props.parseReviewers()}
                 </select>
-                <button>Assign Videos</button>
+                <button onClick={event => clickHandler(event)}>Assign Videos</button>
             </form>
             
         </div>

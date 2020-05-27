@@ -23,16 +23,15 @@ const QaProjectInfo = props =>{
         }
     }
 
-    const removeVideoFromSelected = (vodId) =>{
+    const removeVideoFromSelected = (vodId) => {
         const index = selectedVodIds.indexOf(vodId)
         selectedVodIds.splice(index, 1)
         console.log(selectedVodIds)
         setCount(count - 1)
     }
-    
 
     const parseAssetDetails = () => {
-        return props.details.videos.map(video => <AssetTicket key={video.mvVodId} video={video} addVideoToSelected={addVideoToSelected} removeVideoFromSelected={removeVideoFromSelected}/>)       
+        return props.details.videos.map(video => <AssetTicket key={video.mvVodId} video={video} removeVideoFromSelected={removeVideoFromSelected} addVideoToSelected={addVideoToSelected} />)       
      }
 
     const parseReviewers = () => reviewers.map(r => <option value={r}>{r}</option>)
@@ -44,7 +43,7 @@ const QaProjectInfo = props =>{
                 {parseAssetDetails()}
             </div>
             <div className="selection-column">
-                {count > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={count}/> : <h4>Select Videos for Details</h4>}
+                {count > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={count} selectedVodIds={selectedVodIds}/> : <h4>Select Videos for Details</h4>}
             </div>
         </div>
     )

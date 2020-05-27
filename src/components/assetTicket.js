@@ -7,6 +7,7 @@ const AssetTicket = props =>{
     const select = event => {
         event.preventDefault()
         const vodId = event.target.dataset.id
+
         toggleSelected(!selected)
         props.addVideoToSelected(vodId)
         
@@ -30,11 +31,11 @@ const AssetTicket = props =>{
                 </div>    
      }else{
         return  <div className="asset-display" data-id={props.video.mvVodId} onClick={event => select(event)}>
-                    <div className="asset-text">
-                        <h3>VODID: {props.video.mvVodId}</h3><h3>{props.video.title}</h3><h4>{props.video.artist}</h4>
+                    <div>
+                            <h3>VODID: {props.video.mvVodId}</h3><h3>{props.video.title}</h3><h4>{props.video.artist}</h4>
                     </div>
                 </div>
-     }
+    }
 }
 
 export default AssetTicket
