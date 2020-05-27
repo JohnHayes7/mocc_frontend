@@ -4,7 +4,7 @@ import QaProjectInfo from './Qa_Project_Info'
 import { connect } from 'react-redux'
 import { fetchTrackingSheetData } from '../actions/fetchTrackingSheetData'
 
-class QaProject extends React.Component{
+class QaProjectOverview extends React.Component{
 
     constructor(){
         super()
@@ -21,8 +21,6 @@ class QaProject extends React.Component{
     }
 
     render(){
-        // debugger
-        console.log(this.props.sheetData.qaProject)   
         return(
             <div className='project-div'>
                 <div className="project-header">
@@ -42,7 +40,6 @@ class QaProject extends React.Component{
 }
 
 const mapStateToProps = state => {
-    // console.log(state)
     return {
         sheetData: state    
     }
@@ -52,4 +49,4 @@ const mapDispatchToProps = dispatch => ({
     fetchTrackingSheetData: () => dispatch(fetchTrackingSheetData())
 })
 
-export default connect (mapStateToProps, mapDispatchToProps)(QaProject)
+export default connect (mapStateToProps, mapDispatchToProps)(QaProjectOverview)

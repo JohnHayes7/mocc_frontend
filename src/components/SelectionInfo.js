@@ -1,6 +1,9 @@
 import React from 'react'
 
-const selectionInfoDiv = props => {
+const selectionInfo = props => {
+
+
+
     return(
         <div className="selection-div">
             <div id="selection-details">
@@ -18,4 +21,4 @@ const selectionInfoDiv = props => {
     )
 }
 
-export default selectionInfoDiv
+export default selectionInfo
