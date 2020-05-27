@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './qa_project.css'
 import AssetTicket from './AssetTicket'
+import SelectionInfo from "./SelectionInfo"
 
 
 
@@ -36,24 +37,6 @@ const QaProjectInfo = props =>{
 
     const parseReviewers = () => reviewers.map(r => <option value={r}>{r}</option>)
 
-    const selectionInfoDiv = () => {
-        return(
-            <div className="selection-div">
-                <div id="selection-details">
-                    <h2>Selected Videos: {count} </h2>
-                </div>
-                <form id="options">
-                    Assign {count} videos to:
-                    <select>
-                        {parseReviewers()}
-                    </select>
-                    <button>Assign Videos</button>
-                </form>
-                
-            </div>
-        )
-    }
-
     
     return(
         <div id="asset-info">
@@ -61,7 +44,7 @@ const QaProjectInfo = props =>{
                 {parseAssetDetails()}
             </div>
             <div className="selection-column">
-                {count > 0 ? selectionInfoDiv() : <h4>Select Videos for Details</h4>}
+                {count > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={count}/> : <h4>Select Videos for Details</h4>}
             </div>
         </div>
     )
