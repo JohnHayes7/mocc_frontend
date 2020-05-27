@@ -23,7 +23,7 @@
 
 .asset-display{
     border: 1px solid rgba(0,0,0,0.2);
-   
+   width: 80%;
     margin-left: 10px;
     padding-left: 1%;
     margin-top: 1%;
@@ -40,11 +40,16 @@
     margin-left: 50px;
     padding-left: 1%;
     margin-top: 1%;
+    width: 80%;
     background-color:rgba(90, 199, 109, 0.521); 
 }
 
 .details-column{
-    width: 21%;
+    width: 25%;
+}
+
+.next-column{
+    margin-left: 10%;
 }
 
 .asset-text{
