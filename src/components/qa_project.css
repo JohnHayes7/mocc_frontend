@@ -48,10 +48,21 @@
     width: 25%;
 }
 
-.next-column{
-    margin-left: 10%;
+.selection-column{
+    width: 40%;
+    margin-left: 5%;
+    
 }
 
 .asset-text{
     width:70%
+}
+
+.selection-div{
+    border: 1px solid rgba(0,0,0,0.2);
+    width: 100%;
+    height: 150px;
+    padding: .5%;
+    background-color: rgba(50, 50, 50, 0.541);
+    color: whitesmoke;
 }
