@@ -8,6 +8,8 @@ import AssetTicket from './AssetTicket'
 const QaProjectInfo = props =>{
     console.log(props.details)
 
+    const reviewers = ["Zack", "Ron", "Josh", "Junior"]
+
     const selectedVodIds = []
 
     const [count, setCount] = useState(0)
@@ -32,10 +34,17 @@ const QaProjectInfo = props =>{
         return props.details.videos.map(video => <AssetTicket key={video.mvVodId} video={video} addVideoToSelected={addVideoToSelected} removeVideoFromSelected={removeVideoFromSelected}/>)       
      }
 
+    //  const parseReviewers = () => {
+    //      return 
+    //  }
+
     const selectionInfo = () => {
         return(
             <div className="selection-div">
                 <h4>Selected Videos: {count} </h4>
+                <ul>
+                    {reviewers.map(r => <li>{r}</li>)}
+                </ul>
             </div>
         )
     }
