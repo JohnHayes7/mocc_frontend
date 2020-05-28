@@ -5,7 +5,7 @@ const selectionInfo = props => {
     const clickHandler = event => {
         event.preventDefault()
         console.log(props.selectedVodIds)
-
+        
     }
 
 

@@ -10,23 +10,21 @@ const QaProjectInfo = props =>{
     console.log(props.details)
 
     const reviewers = ["Zack", "Ron", "Josh", "Junior"]
-
-    const selectedVodIds = []
-
+    const [selectedVodIds, setSelected] = useState([])
     const [count, setCount] = useState(0)
     
     const addVideoToSelected = (vodId) =>{
-        selectedVodIds.push(vodId)
-        // debugger
-        console.log(selectedVodIds)
         setCount(count + 1)
+        setSelected([...selectedVodIds, vodId])
+        selectedVodIds.push(vodId)
+        console.log(selectedVodIds)
     }
 
     const removeVideoFromSelected = (vodId) => {
         const index = selectedVodIds.indexOf(vodId)
         selectedVodIds.splice(index, 1)
-        console.log(selectedVodIds)
         setCount(count - 1)
+        console.log(selectedVodIds)
     }
 
     const parseAssetDetails = () => {
