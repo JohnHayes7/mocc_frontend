@@ -24,14 +24,14 @@ const QaProjectInfo = props =>{
         const index = selectedVodIds.indexOf(vodId)
         selectedVodIds.splice(index, 1)
         setCount(count - 1)
-        console.log(selectedVodIds)
+        console.log(selectedVodIds) 
     }
 
     const parseAssetDetails = () => {
         return props.details.videos.map(video => <AssetTicket key={video.mvVodId} video={video} removeVideoFromSelected={removeVideoFromSelected} addVideoToSelected={addVideoToSelected} />)       
      }
 
-    const parseReviewers = () => reviewers.map(r => <option value={r}>{r}</option>)
+    const parseReviewers = () => reviewers.map(r => <option key={r} value={r}>{r}</option>)
 
     
     return(

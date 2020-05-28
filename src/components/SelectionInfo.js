@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const selectionInfo = props => {
+const SelectionInfo = props => {
+
+    const [reviewer, setReviewer] = useState("yup")
 
     const clickHandler = event => {
         event.preventDefault()
         console.log(props.selectedVodIds)
-        
+        console.log(reviewer)
+
     }
+
+    // const changeHandler = event => {
+    //     event.preventDefault()
+    //     setReviewer(event.currentTarget.value)
+    //     console.log(reviewer)
+    // }
 
 
     return(
@@ -16,7 +25,7 @@ const selectionInfo = props => {
             </div>
             <form id="options">
                 Assign {props.count} videos to:
-                <select>
+                <select onChange={event => setReviewer(event.currentTarget.value)}>
                     {props.parseReviewers()}
                 </select>
                 <button onClick={event => clickHandler(event)}>Assign Videos</button>
@@ -26,4 +35,4 @@ const selectionInfo = props => {
     )
 }
 
-export default selectionInfo
+export default SelectionInfo
