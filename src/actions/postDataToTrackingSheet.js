@@ -8,7 +8,12 @@ export const postDataToSheet = (selectionData) => {
             }).then(response => response.json())
             .then(rxData => {
             console.log(rxData)
-            dispatch({type: 'APPENDED_SHEET_DATA', sheetData: rxData})
+            if(rxData.error){
+                alert(rxData.error.message)
+            }else{
+                dispatch({type: 'APPENDED_SHEET_DATA', sheetData: rxData})
+            }
+            
         })
     }
     

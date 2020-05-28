@@ -7,7 +7,11 @@ export const fetchTrackingSheetData = ()=> {
         dispatch({type: 'LOADING_PROJECT_DATA'})
         fetch(`https://sheets.googleapis.com//v4/spreadsheets/${GSHEETS_SHEET_ID}/values/1:9?key= ${GSHEETS_API_KEY}`).then(response => response.json())
         .then(rxData => {
-            dispatch({type: 'RETURNED_SHEET_DATA', sheetData: rxData.values})
+            if(rxData.error){
+                alert(rxData.error.message)
+            }else{
+                dispatch({type: 'RETURNED_SHEET_DATA', sheetData: rxData.values})
+            }
         })
     }
 }

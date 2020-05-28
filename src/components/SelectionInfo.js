@@ -8,11 +8,16 @@ const SelectionInfo = props => {
 
     const clickHandler = event => {
         event.preventDefault()
-        const selectionData = {
-            selectedVodIds: props.selectedVodIds,
-            reviewer: reviewer
+        if(reviewer !== "-"){
+            const selectionData = {
+                selectedVodIds: props.selectedVodIds,
+                reviewer: reviewer
+            }
+            props.postDataToSheet(selectionData)
+        }else{
+            alert("You Must Select a Reviewer to assign videos")
         }
-       props.postDataToSheet(selectionData)
+        
     }
 
 
