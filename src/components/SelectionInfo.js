@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 
 const SelectionInfo = props => {
 
@@ -10,13 +11,6 @@ const SelectionInfo = props => {
         console.log(reviewer)
 
     }
-
-    // const changeHandler = event => {
-    //     event.preventDefault()
-    //     setReviewer(event.currentTarget.value)
-    //     console.log(reviewer)
-    // }
-
 
     return(
         <div className="selection-div">
@@ -35,4 +29,10 @@ const SelectionInfo = props => {
     )
 }
 
-export default SelectionInfo
+const mapDispatchToProps = dispatch => ({
+    dataToSheet: selectionData => dispatch({type:'DATA_TO_SHEET', sheetData: selectionData})
+})
+
+
+
+export default connect (0, mapDispatchToProps)(SelectionInfo)
