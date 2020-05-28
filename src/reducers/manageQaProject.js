@@ -2,7 +2,9 @@ export default function manageQaProject(state={
     loading: false,
     status: "Initiated",
     name: "Test 1",
-    videos: []
+    videos: [],
+    selectedForReview: [],
+    reviwer: 'unassigned'
 }, action) {
 switch(action.type){
 
@@ -36,6 +38,7 @@ switch(action.type){
            ...state,
            loading: false
         }
+
     
 
     // case 'LOGIN_FAN':

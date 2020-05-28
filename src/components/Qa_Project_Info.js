@@ -9,7 +9,7 @@ import SelectionInfo from "./SelectionInfo"
 const QaProjectInfo = props =>{
     console.log(props.details)
 
-    const reviewers = ["Zack", "Ron", "Josh", "Junior"]
+    const reviewers = ["-","Zack", "Ron", "Josh", "Junior"]
     const [selectedVodIds, setSelected] = useState([])
     const [count, setCount] = useState(0)
     

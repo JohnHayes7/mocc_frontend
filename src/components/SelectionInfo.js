@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { postDataToSheet } from '../actions/postDataToTrackingSheet'
 
 const SelectionInfo = props => {
 
-    const [reviewer, setReviewer] = useState("yup")
+    const [reviewer, setReviewer] = useState("-")
 
     const clickHandler = event => {
         event.preventDefault()
-        console.log(props.selectedVodIds)
-        console.log(reviewer)
-
+        const selectionData = {
+            selectedVodIds: props.selectedVodIds,
+            reviewer: reviewer
+        }
+       props.postDataToSheet(selectionData)
     }
+
 
     return(
         <div className="selection-div">
@@ -30,7 +34,7 @@ const SelectionInfo = props => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    dataToSheet: selectionData => dispatch({type:'DATA_TO_SHEET', sheetData: selectionData})
+    postDataToSheet: selectionData => dispatch(postDataToSheet(selectionData))
 })
 
 
