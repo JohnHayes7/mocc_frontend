@@ -13,7 +13,6 @@ export const postDataToSheet = (selectionData) => {
             }else{
                 dispatch({type: 'APPENDED_SHEET_DATA', sheetData: rxData})
             }
-            
         })
     }
     
