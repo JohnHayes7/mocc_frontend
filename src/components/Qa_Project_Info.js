@@ -10,24 +10,37 @@ const QaProjectInfo = props =>{
     console.log(props.details)
 
     const reviewers = ["-","Zack", "Ron", "Josh", "Junior"]
-    const [selectedVodIds, setSelected] = useState([])
+    const [selectedVideos, setSelected] = useState([])
     const [count, setCount] = useState(0)
     
-    const addVideoToSelected = (vodIds) =>{
-        const mcVodId = vodIds.split("-")[0]
-        const rowId = vodIds.split("-")[1]
+    const addVideoToSelected = (vodId) =>{
+        const videoIdAndRow = {}
+        videoIdAndRow["mcVodId"] = vodId.split("-")[0]
+        videoIdAndRow["row"] = vodId.split("-")[1]
         setCount(count + 1)
-        setSelected([...selectedVodIds, mcVodId])
-        selectedVodIds.push(mcVodId)
-        console.log(selectedVodIds)
-        console.log(rowId)
+        setSelected([...selectedVideos, videoIdAndRow])
+        selectedVideos.push(videoIdAndRow)
+        console.log(selectedVideos)
+        // console.log(rowId)
     }
 
+    const findIndexOfDeselected = (array, attr, value) => {
+        for(let i = 0; i < array.length; i += 1){
+            if(array[i][attr] === value){
+                return i
+            }
+        }
+
+        return -1
+    }
+
+    
+
     const removeVideoFromSelected = (vodId) => {
-        const index = selectedVodIds.indexOf(vodId)
-        selectedVodIds.splice(index, 1)
+        const index = findIndexOfDeselected(selectedVideos, "mcVodId", vodId)
+        selectedVideos.splice(index, 1)
         setCount(count - 1)
-        console.log(selectedVodIds) 
+        console.log(selectedVideos) 
     }
 
     const parseAssetDetails = () => {
@@ -43,7 +56,7 @@ const QaProjectInfo = props =>{
                 {parseAssetDetails()}
             </div>
             <div className="selection-column">
-                {count > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={count} selectedVodIds={selectedVodIds}/> : <h4>Select Videos for Details</h4>}
+                {count > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={count} selectedVodIds={selectedVideos}/>  : <h4>Select Videos for Details</h4>}
             </div>
         </div>
     )
