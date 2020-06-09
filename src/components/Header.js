@@ -13,7 +13,7 @@ const Header = () => {
                 <Link to ="/qa-projects"><span className="category">QA Projects</span></Link>
                 
             </div>
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <div className="g-signin2" data-onsuccess="onSignIn"></div>
         </div>
     )
 }

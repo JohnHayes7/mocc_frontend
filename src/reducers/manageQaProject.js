@@ -24,11 +24,12 @@ switch(action.type){
         
         videosAry.forEach(video => {
             const videoData = {}
-            
+            console.log(video)
             videoData["title"] = video[1]
             videoData["artist"] = video[2]
             videoData["language"] = video[10]
             videoData["mvVodId"] = video[13]
+            videoData["rowID"] = video[14]
             videoData["mcRating"] = null
             videoData["mcQastatus"] = null
             state.videos.push(videoData)
