@@ -13,11 +13,14 @@ const QaProjectInfo = props =>{
     const [selectedVodIds, setSelected] = useState([])
     const [count, setCount] = useState(0)
     
-    const addVideoToSelected = (vodId) =>{
+    const addVideoToSelected = (vodIds) =>{
+        const mcVodId = vodIds.split("-")[0]
+        const rowId = vodIds.split("-")[1]
         setCount(count + 1)
-        setSelected([...selectedVodIds, vodId])
-        selectedVodIds.push(vodId)
+        setSelected([...selectedVodIds, mcVodId])
+        selectedVodIds.push(mcVodId)
         console.log(selectedVodIds)
+        console.log(rowId)
     }
 
     const removeVideoFromSelected = (vodId) => {
