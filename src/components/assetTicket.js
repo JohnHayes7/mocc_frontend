@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 const AssetTicket = props =>{
-    console.log(props)
     const [selected, toggleSelected] = useState(false);
 
     const select = event => {
