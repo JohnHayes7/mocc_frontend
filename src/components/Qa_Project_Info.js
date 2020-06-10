@@ -34,8 +34,6 @@ const QaProjectInfo = props =>{
         return -1
     }
 
-    
-
     const removeVideoFromSelected = (vodId) => {
         const index = findIndexOfDeselected(selectedVideos, "mcVodId", vodId)
         selectedVideos.splice(index, 1)
@@ -56,7 +54,7 @@ const QaProjectInfo = props =>{
                 {parseAssetDetails()}
             </div>
             <div className="selection-column">
-                {count > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={count} selectedVodIds={selectedVideos}/>  : <h4>Select Videos for Details</h4>}
+                {count > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={count} selectedVideos={selectedVideos}/>  : <h4>Select Videos for Details</h4>}
             </div>
         </div>
     )

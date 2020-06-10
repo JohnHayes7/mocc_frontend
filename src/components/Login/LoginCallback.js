@@ -4,6 +4,7 @@ import { RouteComponentProps } from "react-router";
 import { Google } from "./config";
 
 const LoginCallback: FC<RouteComponentProps> = ({ location }) => {
+    // debugger
   useEffect(() => {
     const code = (location.search.match(/code=([^&]+)/) || [])[1];
     const state = (location.search.match(/state=([^&]+)/) || [])[1];

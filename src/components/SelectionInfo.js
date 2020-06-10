@@ -10,7 +10,7 @@ const SelectionInfo = props => {
         event.preventDefault()
         if(reviewer !== "-"){
             const selectionData = {
-                selectedVodIds: props.selectedVodIds,
+                selectedVideos: props.selectedVideos,
                 reviewer: reviewer
             }
             props.postDataToSheet(selectionData)
