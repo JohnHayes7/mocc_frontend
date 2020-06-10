@@ -1,7 +1,7 @@
 export const postDataToSheet = (selectionData) => {
     const GSHEETS_API_KEY = process.env.REACT_APP_GOOGLESHEETS_API_KEY
     const GSHEETS_SHEET_ID = process.env.REACT_APP_QA_TEST_SHEET_1_ID
-    const ACCESS_TOKEN = 'ya29.a0AfH6SMCSScyVZAnveMWrKXoz7L8z3TjOQKE9yOcJkHWBQo670b6sMzb_TFyMozhqo_SxGqwVL0Hwqfe-9AwZq0gPgFg2L6VU4RuDjNh6cAp6xKVevBYK-3UC0UNGMyvZYsU34C-NsgenaaMFE6oKctAY-dX8ngCv2OY'
+    const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN
     
     return (dispatch) => {
         // debugger
@@ -18,12 +18,12 @@ export const postDataToSheet = (selectionData) => {
                                startColumnIndex: 15,
                                endColumnIndex: 16,
                                startRowIndex: 1,
-                               endRowIndex: 5,
+                               endRowIndex: 6,
                                sheetId: 0 
                             },
                             cell:{
                                 userEnteredValue: {
-                                    "numberValue": 10
+                                    "stringValue": "FACE"
                                 },
                             },
                             fields: '*'
