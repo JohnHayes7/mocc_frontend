@@ -11,14 +11,14 @@ const QaProjectInfo = props =>{
 
     const reviewers = props.details.availableReviewers
     const [selectedVideos, setSelected] = useState([])
-    const [count, setCount] = useState(0)
+    const [selectedCount, setSelectedCount] = useState(0)
     // const [reviewers, editReviewer] = useState(["-"])
     
     const addVideoToSelected = (vodId) =>{
         const videoIdAndRow = {}
         videoIdAndRow["mcVodId"] = vodId.split("-")[0]
         videoIdAndRow["row"] = vodId.split("-")[1]
-        setCount(count + 1)
+        setSelectedCount(selectedCount + 1)
         setSelected([...selectedVideos, videoIdAndRow])
         selectedVideos.push(videoIdAndRow)
         console.log(selectedVideos)
@@ -31,14 +31,13 @@ const QaProjectInfo = props =>{
                 return i
             }
         }
-
         return -1
     }
 
     const removeVideoFromSelected = (vodId) => {
         const index = findIndexOfDeselected(selectedVideos, "mcVodId", vodId)
         selectedVideos.splice(index, 1)
-        setCount(count - 1)
+        setSelectedCount(selectedCount - 1)
         console.log(selectedVideos) 
     }
 
@@ -50,14 +49,13 @@ const QaProjectInfo = props =>{
 
     const parseReviewers = () => reviewers.map(r => <option key={r.name} value={r.name}>{r.name}</option>)
 
-    debugger
     return(
         <div id="asset-info">
             <div className="asset-details-column">
                 {parseAssetDetails()}
             </div>
             <div className="selection-column">
-                {count > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={count} selectedVideos={selectedVideos}/>  : <h4>Select Videos for Details</h4>}
+                {selectedCount > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={selectedCount} selectedVideos={selectedVideos}/>  : <h4>Select Videos for Details</h4>}
             </div>
         </div>
     )

@@ -47,12 +47,12 @@ switch(action.type){
 
        reviewerData.forEach(rev => {
            const reviewer = {}
-           reviewer["Name"] = rev[0]
-           reviewer["Department"] = rev[1]
-           reviewer["Language"] = rev[2]
+           reviewer["name"] = rev[0]
+           reviewer["department"] = rev[1]
+           reviewer["language"] = rev[2]
            reviewer["noOfAssignments"] = rev[3]
-           reviewer["assignmentsOutstanding"] = rev[4]
-           reviewer["assignmentsCompleted"] = rev[5]
+           reviewer["assignmentsCompleted"] = rev[4]
+           reviewer["rowId"] = rev[5]
 
            state.availableReviewers.push(reviewer)
        })

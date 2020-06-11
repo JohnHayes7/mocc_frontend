@@ -6,6 +6,7 @@ import { postDataToSheet } from '../actions/postDataToTrackingSheet'
 const SelectionInfo = props => {
 
     const [reviewer, setReviewer] = useState("-")
+    
 
     const pageRefresh = () => window.location.reload(false)
 
@@ -20,7 +21,7 @@ const SelectionInfo = props => {
         }else{
             alert("You Must Select a Reviewer to assign videos")
         }
-        alert(`You've assigned ${props.selectedVideos.length} to ${reviewer}`)
+        alert(`You've assigned ${props.selectedVideos.length} videos to ${reviewer}`)
         pageRefresh()
     }
 

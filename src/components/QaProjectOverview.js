@@ -28,12 +28,6 @@ class QaProjectOverview extends React.Component{
             <div className='project-div'>
                 <div className="project-header">
                     <h1>{this.state.project_name}</h1>
-                    <div id="login-opts">
-                        <span><strong>Login as Reviewer</strong></span>
-                        <br></br>
-                        <br></br>
-                        <span><strong>Login as Admin</strong></span>
-                    </div>
                 </div>
                 {this.props.sheetData.qaProject.loading ? <h1>Loading....</h1> : <QaProjectInfo details={this.props.sheetData.qaProject}/>}
             </div>
