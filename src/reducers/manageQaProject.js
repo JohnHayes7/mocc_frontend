@@ -4,7 +4,8 @@ export default function manageQaProject(state={
     name: "Test 1",
     videos: [],
     selectedForReview: [],
-    reviwer: 'unassigned'
+    reviwer: 'unassigned',
+    availableReviewers: []
 }, action) {
 switch(action.type){
 
@@ -16,7 +17,7 @@ switch(action.type){
             loading: true
         }
 
-    case 'RETURNED_SHEET_DATA':
+    case 'RETURNED_TRACKING_SHEET_DATA':
         // const videoAttrs = action.sheetData.shift()
         const videosAry = action.sheetData
         
@@ -39,6 +40,28 @@ switch(action.type){
            ...state,
            loading: false
         }
+
+    case 'RETURNED_REVIEWER_SHEET_DATA':
+        const reviewerAttrs = action.reviewerData.shift()
+        const reviewerData = action.reviewerData
+
+       reviewerData.forEach(rev => {
+           const reviewer = {}
+           reviewer["Name"] = rev[0]
+           reviewer["Department"] = rev[1]
+           reviewer["Language"] = rev[2]
+           reviewer["noOfAssignments"] = rev[3]
+           reviewer["assignmentsOutstanding"] = rev[4]
+           reviewer["assignmentsCompleted"] = rev[5]
+
+           state.availableReviewers.push(reviewer)
+       })
+        
+        return{
+            ...state
+        }
+
+    
 
     
 

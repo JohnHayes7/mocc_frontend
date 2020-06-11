@@ -3,6 +3,7 @@ import './qa_project.css'
 import QaProjectInfo from './Qa_Project_Info'
 import { connect } from 'react-redux'
 import { fetchTrackingSheetData } from '../actions/fetchProjectSheetsData'
+import { fetchReviewerSheetData } from '../actions/fetchProjectSheetsData'
 
 class QaProjectOverview extends React.Component{
 
@@ -18,6 +19,7 @@ class QaProjectOverview extends React.Component{
    
     componentDidMount(){
         this.props.fetchTrackingSheetData()
+        this.props.fetchReviewerSheetData()
     }
 
     render(){
@@ -46,7 +48,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchTrackingSheetData: () => dispatch(fetchTrackingSheetData())
+    fetchTrackingSheetData: () => dispatch(fetchTrackingSheetData()),
+    fetchReviewerSheetData: () => dispatch(fetchReviewerSheetData())
+
 })
 
 export default connect (mapStateToProps, mapDispatchToProps)(QaProjectOverview)
