@@ -1,15 +1,16 @@
 export const postDataToSheet = (selectionData) => {
-    const GSHEETS_API_KEY = process.env.REACT_APP_GOOGLESHEETS_API_KEY
+    // const GSHEETS_API_KEY = process.env.REACT_APP_GOOGLESHEETS_API_KEY
     const GSHEETS_SHEET_ID = process.env.REACT_APP_QA_TEST_SHEET_1_ID
     const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN
     console.log(selectionData)
 
     const rowIds = () =>{
-        const ary = [1, 2, 3, 4, 5, 6]
-       
-        return ary
+        return selectionData.selectedVideos.map(video => video.row)  
     }
 
+    const firstRow = rowIds()[0]
+    const endRow = rowIds()[rowIds().length - 1]
+    debugger
 
     return (dispatch) => {
         fetch(`https://sheets.googleapis.com/v4/spreadsheets/${GSHEETS_SHEET_ID}:batchUpdate`,{
@@ -24,8 +25,8 @@ export const postDataToSheet = (selectionData) => {
                             range:{
                                startColumnIndex: 15,
                                endColumnIndex: 16,
-                               startRowIndex: rowIds()[0],
-                               endRowIndex: rowIds()[4],
+                               startRowIndex: firstRow,
+                               endRowIndex: endRow,
                                sheetId: 0 
                             },
                             cell:{

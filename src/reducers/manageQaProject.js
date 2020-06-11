@@ -17,7 +17,7 @@ switch(action.type){
         }
 
     case 'RETURNED_SHEET_DATA':
-        const videoAttrs = action.sheetData.shift()
+        // const videoAttrs = action.sheetData.shift()
         const videosAry = action.sheetData
         
         

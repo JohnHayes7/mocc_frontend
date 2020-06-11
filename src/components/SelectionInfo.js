@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { postDataToSheet } from '../actions/postDataToTrackingSheet'
-import { useHistory } from 'react-router-dom'
 
 
 const SelectionInfo = props => {
 
-    const history = useHistory()
     const [reviewer, setReviewer] = useState("-")
 
     const pageRefresh = () => window.location.reload(false)
