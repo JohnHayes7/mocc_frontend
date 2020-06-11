@@ -42,7 +42,9 @@ const QaProjectInfo = props =>{
     }
 
     const parseAssetDetails = () => {
-        return props.details.videos.map(video => <AssetTicket key={video.mvVodId} video={video} removeVideoFromSelected={removeVideoFromSelected} addVideoToSelected={addVideoToSelected} />)       
+        return (
+            props.details.videos.map(video => !video.reviewer ? <AssetTicket key={video.mvVodId} video={video} removeVideoFromSelected={removeVideoFromSelected} addVideoToSelected={addVideoToSelected} /> : null)
+        )       
      }
 
     const parseReviewers = () => reviewers.map(r => <option key={r} value={r}>{r}</option>)

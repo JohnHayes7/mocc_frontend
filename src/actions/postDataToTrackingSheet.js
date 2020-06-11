@@ -2,9 +2,16 @@ export const postDataToSheet = (selectionData) => {
     const GSHEETS_API_KEY = process.env.REACT_APP_GOOGLESHEETS_API_KEY
     const GSHEETS_SHEET_ID = process.env.REACT_APP_QA_TEST_SHEET_1_ID
     const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN
-    
+    console.log(selectionData)
+
+    const rowIds = () =>{
+        const ary = [1, 2, 3, 4, 5, 6]
+       
+        return ary
+    }
+
+
     return (dispatch) => {
-        // debugger
         fetch(`https://sheets.googleapis.com/v4/spreadsheets/${GSHEETS_SHEET_ID}:batchUpdate`,{
             method: 'POST',
             headers:{
@@ -17,13 +24,13 @@ export const postDataToSheet = (selectionData) => {
                             range:{
                                startColumnIndex: 15,
                                endColumnIndex: 16,
-                               startRowIndex: 1,
-                               endRowIndex: 6,
+                               startRowIndex: rowIds()[0],
+                               endRowIndex: rowIds()[4],
                                sheetId: 0 
                             },
                             cell:{
                                 userEnteredValue: {
-                                    "stringValue": "FACE"
+                                    "stringValue": `${selectionData.reviewer}`
                                 },
                             },
                             fields: '*'

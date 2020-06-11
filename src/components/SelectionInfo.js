@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { postDataToSheet } from '../actions/postDataToTrackingSheet'
+import { useHistory } from 'react-router-dom'
+
 
 const SelectionInfo = props => {
 
+    const history = useHistory()
     const [reviewer, setReviewer] = useState("-")
+
+    const pageRefresh = () => window.location.reload(false)
 
     const clickHandler = event => {
         event.preventDefault()
@@ -17,7 +22,8 @@ const SelectionInfo = props => {
         }else{
             alert("You Must Select a Reviewer to assign videos")
         }
-        
+        alert(`You've assigned ${props.selectedVideos.length} to ${reviewer}`)
+        pageRefresh()
     }
 
 

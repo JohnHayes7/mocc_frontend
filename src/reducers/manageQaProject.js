@@ -17,7 +17,6 @@ switch(action.type){
         }
 
     case 'RETURNED_SHEET_DATA':
-        
         const videoAttrs = action.sheetData.shift()
         const videosAry = action.sheetData
         
@@ -32,6 +31,7 @@ switch(action.type){
             videoData["rowID"] = video[14]
             videoData["mcRating"] = null
             videoData["mcQastatus"] = null
+            videoData["reviewer"] = video[15]
             state.videos.push(videoData)
         })
 
