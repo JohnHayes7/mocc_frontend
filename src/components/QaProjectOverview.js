@@ -2,7 +2,7 @@ import React from 'react'
 import './qa_project.css'
 import QaProjectInfo from './Qa_Project_Info'
 import { connect } from 'react-redux'
-import { fetchTrackingSheetData } from '../actions/fetchTrackingSheetData'
+import { fetchTrackingSheetData } from '../actions/fetchProjectSheetsData'
 
 class QaProjectOverview extends React.Component{
 
