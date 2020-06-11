@@ -8,7 +8,7 @@ export const postDataToSheet = (selectionData) => {
         return selectionData.selectedVideos.map(video => video.row)  
     }
 
-    const firstRow = rowIds()[0]
+    const firstRow = rowIds()[0] - 1
     const endRow = rowIds()[rowIds().length - 1]
     debugger
 
