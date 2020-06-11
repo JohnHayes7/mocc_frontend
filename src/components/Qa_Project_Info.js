@@ -9,9 +9,10 @@ import SelectionInfo from "./SelectionInfo"
 const QaProjectInfo = props =>{
     console.log(props.details)
 
-    const reviewers = ["-","Zack", "Ron", "Josh", "Junior"]
+    const reviewers = props.details.availableReviewers
     const [selectedVideos, setSelected] = useState([])
     const [count, setCount] = useState(0)
+    // const [reviewers, editReviewer] = useState(["-"])
     
     const addVideoToSelected = (vodId) =>{
         const videoIdAndRow = {}
@@ -47,9 +48,9 @@ const QaProjectInfo = props =>{
         )       
      }
 
-    const parseReviewers = () => reviewers.map(r => <option key={r} value={r}>{r}</option>)
+    const parseReviewers = () => reviewers.map(r => <option key={r.name} value={r.name}>{r.name}</option>)
 
-    
+    debugger
     return(
         <div id="asset-info">
             <div className="asset-details-column">
