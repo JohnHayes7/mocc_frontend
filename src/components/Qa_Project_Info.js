@@ -51,7 +51,7 @@ const QaProjectInfo = props =>{
                 {parseAssetDetails()}
             </div>
             <div className="selection-column">
-                {selectedCount > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={selectedCount} selectedVideos={selectedVideos}/>  : <h4>Select Videos for Details</h4>}
+                {selectedCount > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={selectedCount} selectedVideos={selectedVideos} reviewers={reviewers}/>  : <h4>Select Videos for Details</h4>}
             </div>
         </div>
     )

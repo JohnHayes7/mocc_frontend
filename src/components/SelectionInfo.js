@@ -1,27 +1,28 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { postDataToSheet } from '../actions/postDataToTrackingSheet'
+import Reviewer from './ReviewerInfo'
 
 
 const SelectionInfo = props => {
 
-    const [reviewer, setReviewer] = useState("-")
+    const [selectedReviewer, setSelectedReviewer] = useState("-")
     
 
     const pageRefresh = () => window.location.reload(false)
 
     const clickHandler = event => {
         event.preventDefault()
-        if(reviewer !== "-"){
+        if(selectedReviewer !== "-"){
             const selectionData = {
                 selectedVideos: props.selectedVideos,
-                reviewer: reviewer
+                reviewer: selectedReviewer
             }
             props.postDataToSheet(selectionData)
         }else{
             alert("You Must Select a Reviewer to assign videos")
         }
-        alert(`You've assigned ${props.selectedVideos.length} videos to ${reviewer}`)
+        alert(`You've assigned ${props.selectedVideos.length} videos to ${selectedReviewer}`)
         pageRefresh()
     }
 
@@ -33,14 +34,12 @@ const SelectionInfo = props => {
             </div>
             <form id="options">
                 Assign {props.count} videos to:
-                <select onChange={event => setReviewer(event.currentTarget.value)}>
+                <select onChange={event => setSelectedReviewer(event.currentTarget.value)}>
                     {props.parseReviewers()}
                 </select>
                 <button onClick={event => clickHandler(event)}>Assign Videos</button>
             </form>
-            <div id="reviewer-info">
-                <strong className="reviewer-name">{reviewer}</strong>
-            </div>
+            <Reviewer reviewers={props.reviewers} selectedReviewer={selectedReviewer}/>
             
         </div>
     )

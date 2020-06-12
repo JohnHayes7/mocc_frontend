@@ -82,3 +82,8 @@
     /* margin-left: 1px; */
     border-left: 1px solid black;
 }
+
+.reviewer-name{
+    font-size: 1.5em;
+    font-weight: 300;
+}
