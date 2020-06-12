@@ -38,6 +38,9 @@ const SelectionInfo = props => {
                 </select>
                 <button onClick={event => clickHandler(event)}>Assign Videos</button>
             </form>
+            <div id="reviewer-info">
+                <strong className="reviewer-name">{reviewer}</strong>
+            </div>
             
         </div>
     )
