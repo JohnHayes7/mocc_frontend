@@ -12,7 +12,6 @@ const QaProjectInfo = props =>{
     const reviewers = props.details.availableReviewers
     const [selectedVideos, setSelected] = useState([])
     const [selectedCount, setSelectedCount] = useState(0)
-    // const [reviewers, editReviewer] = useState(["-"])
     
     const addVideoToSelected = (vodId) =>{
         const videoIdAndRow = {}
@@ -22,7 +21,6 @@ const QaProjectInfo = props =>{
         setSelected([...selectedVideos, videoIdAndRow])
         selectedVideos.push(videoIdAndRow)
         console.log(selectedVideos)
-        // console.log(rowId)
     }
 
     const findIndexOfDeselected = (array, attr, value) => {
@@ -51,7 +49,7 @@ const QaProjectInfo = props =>{
                 {parseAssetDetails()}
             </div>
             <div className="selection-column">
-                {selectedCount > 0 ? <SelectionInfo parseReviewers={parseReviewers} count={selectedCount} selectedVideos={selectedVideos} reviewers={reviewers}/>  : <h4>Select Videos for Details</h4>}
+                {selectedCount > 0 ? <SelectionInfo allVideos={props.details.videos} parseReviewers={parseReviewers} count={selectedCount} selectedVideos={selectedVideos} reviewers={reviewers}/>  : <h4>Select Videos for Details</h4>}
             </div>
         </div>
     )

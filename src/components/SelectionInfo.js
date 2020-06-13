@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { postDataToSheet } from '../actions/postDataToTrackingSheet'
-import Reviewer from './ReviewerInfo'
+import ReviewerInfo from './ReviewerInfo'
 
 
 const SelectionInfo = props => {
@@ -11,6 +11,19 @@ const SelectionInfo = props => {
 
     const pageRefresh = () => window.location.reload(false)
 
+    const assignmentsCompleted = () => {
+        const videos = props.allVideos
+        let tally = 0
+        videos.forEach( video => {
+            if(video.reviewer === selectedReviewer && (video.mcQastatus === "PASS" || video.mcQastatus === "FAIL")){
+                tally++
+            }
+        });
+
+        debugger
+        return tally
+    }
+
     const clickHandler = event => {
         event.preventDefault()
         if(selectedReviewer !== "-"){
@@ -18,7 +31,7 @@ const SelectionInfo = props => {
                 selectedVideos: props.selectedVideos,
                 reviewer: selectedReviewer
             }
-            props.postDataToSheet(selectionData)
+            props.postSelectionDataToSheet(selectionData)
         }else{
             alert("You Must Select a Reviewer to assign videos")
         }
@@ -39,14 +52,14 @@ const SelectionInfo = props => {
                 </select>
                 <button onClick={event => clickHandler(event)}>Assign Videos</button>
             </form>
-            <Reviewer reviewers={props.reviewers} count={props.count} selectedReviewer={selectedReviewer}/>
+            <ReviewerInfo reviewers={props.reviewers} assignmentsCompleted={assignmentsCompleted} count={props.count} selectedReviewer={selectedReviewer}/>
             
         </div>
     )
 }
 
 const mapDispatchToProps = dispatch => ({
-    postDataToSheet: selectionData => dispatch(postDataToSheet(selectionData))
+    postSelectionDataToSheet: selectionData => dispatch(postDataToSheet(selectionData))
 })
 
 

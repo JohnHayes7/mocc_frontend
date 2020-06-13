@@ -33,7 +33,7 @@ const AssetTicket = props =>{
      }else{
         return  <div className="asset-display">
                     <div className="asset-text" data-id={props.video.mvVodId + "-" + props.video.rowID} key={props.video.rowID} onClick={event => select(event)}>
-                      {props.video.rowID}  <h3>VODID: {props.video.mvVodId}</h3><h3>{props.video.title}</h3><h4>{props.video.artist}</h4>
+                       <h3>VODID: {props.video.mvVodId}</h3><h3>{props.video.language}</h3><h3>{props.video.title}</h3><h4>{props.video.artist}</h4>
                     </div>
                 </div>
     }
