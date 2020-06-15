@@ -31,7 +31,7 @@ switch(action.type){
             videoData["mvVodId"] = video[13]
             videoData["rowID"] = video[14]
             videoData["mcRating"] = null
-            videoData["mcQastatus"] = null
+            videoData["mcQastatus"] = video[16]
             videoData["reviewer"] = video[15]
             state.videos.push(videoData)
         })

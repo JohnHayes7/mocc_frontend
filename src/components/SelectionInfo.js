@@ -11,18 +11,9 @@ const SelectionInfo = props => {
 
     const pageRefresh = () => window.location.reload(false)
 
-    const assignmentsCompleted = () => {
-        const videos = props.allVideos
-        let tally = 0
-        videos.forEach( video => {
-            if(video.reviewer === selectedReviewer && (video.mcQastatus === "PASS" || video.mcQastatus === "FAIL")){
-                tally++
-            }
-        });
-
-        debugger
-        return tally
-    }
+    const assignmentsCompletedByReviewer = () => props.allVideos.filter(video => video.reviewer === selectedReviewer && video.mcQastatus)
+    
+    const assignmentsNotCompletedByReviewer = () => props.allVideos.filter(video => video.reviewer === selectedReviewer && !video.mcQastatus)
 
     const clickHandler = event => {
         event.preventDefault()
@@ -52,7 +43,7 @@ const SelectionInfo = props => {
                 </select>
                 <button onClick={event => clickHandler(event)}>Assign Videos</button>
             </form>
-            <ReviewerInfo reviewers={props.reviewers} assignmentsCompleted={assignmentsCompleted} count={props.count} selectedReviewer={selectedReviewer}/>
+            <ReviewerInfo reviewers={props.reviewers} assignmentsCompleted={assignmentsCompletedByReviewer} assignmentsNotCompleted={assignmentsNotCompletedByReviewer} count={props.count} selectedReviewer={selectedReviewer}/>
             
         </div>
     )
