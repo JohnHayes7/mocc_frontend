@@ -52,11 +52,11 @@ switch(action.type){
            reviewer["language"] = rev[2]
            reviewer["noOfAssignments"] = rev[3]
            reviewer["assignmentsCompleted"] = rev[4]
-           reviewer["rowId"] = rev[5]
+           reviewer["quota"] = rev[5]
+           reviewer["rowId"] = rev[6]
 
            state.availableReviewers.push(reviewer)
        })
-        
         return{
             ...state
         }

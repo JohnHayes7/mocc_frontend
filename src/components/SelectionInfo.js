@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { postDataToSheet } from '../actions/postDataToTrackingSheet'
+import { postReviewerDataToSheet } from '../actions/postReviewerDataToSheet'
 import ReviewerInfo from './ReviewerInfo'
 
 
@@ -50,7 +51,8 @@ const SelectionInfo = props => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    postSelectionDataToSheet: selectionData => dispatch(postDataToSheet(selectionData))
+    postSelectionDataToSheet: selectionData => dispatch(postDataToSheet(selectionData)),
+    postReviewerDataToSheet: reviewerData => dispatch(postReviewerDataToSheet(reviewerData))
 })
 
 
