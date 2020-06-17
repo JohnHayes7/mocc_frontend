@@ -10,7 +10,6 @@ export const postDataToSheet = (selectionData) => {
 
     const firstRow = rowIds()[0] - 1
     const endRow = rowIds()[rowIds().length - 1]
-    debugger
 
     return (dispatch) => {
         fetch(`https://sheets.googleapis.com/v4/spreadsheets/${GSHEETS_SHEET_ID}:batchUpdate`,{
@@ -52,3 +51,4 @@ export const postDataToSheet = (selectionData) => {
     }
     
 }   
+

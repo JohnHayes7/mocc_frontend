@@ -15,6 +15,10 @@ const SelectionInfo = props => {
     const assignmentsCompletedByReviewer = () => props.allVideos.filter(video => video.reviewer === selectedReviewer && video.mcQastatus)
     
     const assignmentsNotCompletedByReviewer = () => props.allVideos.filter(video => video.reviewer === selectedReviewer && !video.mcQastatus)
+    
+    const totalAssignmentsByReviewer = assignmentsCompletedByReviewer().length + assignmentsNotCompletedByReviewer().length
+
+    const selectedReviewerRowId = props.reviewers.find(r => r.name === selectedReviewer).rowId
 
     const clickHandler = event => {
         event.preventDefault()
@@ -23,7 +27,15 @@ const SelectionInfo = props => {
                 selectedVideos: props.selectedVideos,
                 reviewer: selectedReviewer
             }
+
+            const reviewerData = {
+                name: selectedReviewer,
+                rowId: selectedReviewerRowId,
+                totalAssignments: totalAssignmentsByReviewer,
+                assignmentsCompleted: assignmentsCompletedByReviewer().length
+            }
             props.postSelectionDataToSheet(selectionData)
+            props.postReviewerDataToSheet(reviewerData)
         }else{
             alert("You Must Select a Reviewer to assign videos")
         }
