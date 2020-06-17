@@ -16,10 +16,10 @@ const SelectionInfo = props => {
     
     const assignmentsNotCompletedByReviewer = () => props.allVideos.filter(video => video.reviewer === selectedReviewer && !video.mcQastatus)
     
-    const totalAssignmentsByReviewer = assignmentsCompletedByReviewer().length + assignmentsNotCompletedByReviewer().length
+    const totalAssignmentsByReviewer = assignmentsCompletedByReviewer().length + assignmentsNotCompletedByReviewer().length + props.count
 
     const selectedReviewerRowId = props.reviewers.find(r => r.name === selectedReviewer).rowId
-
+debugger    
     const clickHandler = event => {
         event.preventDefault()
         if(selectedReviewer !== "-"){

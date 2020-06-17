@@ -16,16 +16,19 @@ export const postReviewerDataToSheet = (reviewerData) => {
                         repeatCell:{
                             range:{
                                startColumnIndex: 3,
-                               endColumnIndex: 4,
-                               startRowIndex: parseInt(reviewerData.rowId),
-                               endRowIndex: parseInt(reviewerData.rowId) + 1,
+                               endColumnIndex: 5,
+                               startRowIndex: parseInt(reviewerData.rowId) - 1,
+                               endRowIndex: parseInt(reviewerData.rowId),
                                sheetId: 0 
                             },
                             cell:{
                                 userEnteredValue: {
-                                    "totalAssignmentsValue": `${reviewerData.totalAssignments}`,
-                                    "completedAssignmentsValue": `${reviewerData.assignmentsCompleted}`
+                                    "numberValue": `${parseInt(reviewerData.totalAssignments)}`
+                                    // "numberValue": `${reviewerData.assignmentsCompleted}`
                                 },
+                                userEnteredValue:{
+                                    
+                                }
                             },
                             fields: '*'
                         }
