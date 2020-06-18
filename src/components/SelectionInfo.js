@@ -36,6 +36,7 @@ debugger
             }
             props.postSelectionDataToSheet(selectionData)
             props.postReviewerDataToSheet(reviewerData)
+            // I WANT TO MOVE THE VIDEOS IN selectionData.selectedVideos TO selectionData.reveiewer 's DRIVE FOLDER
         }else{
             alert("You Must Select a Reviewer to assign videos")
         }
