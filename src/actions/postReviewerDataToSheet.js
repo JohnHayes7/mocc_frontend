@@ -16,7 +16,7 @@ export const postReviewerDataToSheet = (reviewerData) => {
                     "majorDimension": "COLUMNS",
                     "values": [
                         [parseInt(reviewerData.totalAssignments)],
-                        [parseInt(reviewerData.assignmentsCompleted)]
+                        [reviewerData.assignmentsCompleted]
                     ]
                 })
             }).then(response => response.json())
