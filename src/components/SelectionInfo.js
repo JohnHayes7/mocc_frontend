@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { postDataToSheet } from '../actions/postDataToTrackingSheet'
 import { postReviewerDataToSheet } from '../actions/postReviewerDataToSheet'
+import { moveToSelectedDriveFolder } from '../actions/moveToSelectedDriveFolder'
 import ReviewerInfo from './ReviewerInfo'
 
 
@@ -36,12 +37,14 @@ debugger
             }
             props.postSelectionDataToSheet(selectionData)
             props.postReviewerDataToSheet(reviewerData)
+            debugger
+            props.moveToSelectedDriveFolder(selectionData)
             // I WANT TO MOVE THE VIDEOS IN selectionData.selectedVideos TO selectionData.reveiewer 's DRIVE FOLDER
+            alert(`You've assigned ${props.selectedVideos.length} videos to ${selectedReviewer}`)
+            pageRefresh()
         }else{
             alert("You Must Select a Reviewer to assign videos")
         }
-        alert(`You've assigned ${props.selectedVideos.length} videos to ${selectedReviewer}`)
-        pageRefresh()
     }
 
 
@@ -65,7 +68,8 @@ debugger
 
 const mapDispatchToProps = dispatch => ({
     postSelectionDataToSheet: selectionData => dispatch(postDataToSheet(selectionData)),
-    postReviewerDataToSheet: reviewerData => dispatch(postReviewerDataToSheet(reviewerData))
+    postReviewerDataToSheet: reviewerData => dispatch(postReviewerDataToSheet(reviewerData)),
+    moveToSelectedDriveFolder: selectionData => dispatch(moveToSelectedDriveFolder(selectionData))
 })
 
 

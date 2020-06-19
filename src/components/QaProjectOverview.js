@@ -4,6 +4,7 @@ import QaProjectInfo from './Qa_Project_Info'
 import { connect } from 'react-redux'
 import { fetchTrackingSheetData } from '../actions/fetchProjectSheetsData'
 import { fetchReviewerSheetData } from '../actions/fetchProjectSheetsData'
+import { moveToSelectedDriveFolder } from '../actions/moveToSelectedDriveFolder'
 
 class QaProjectOverview extends React.Component{
 
@@ -44,7 +45,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     fetchTrackingSheetData: () => dispatch(fetchTrackingSheetData()),
-    fetchReviewerSheetData: () => dispatch(fetchReviewerSheetData())
+    fetchReviewerSheetData: () => dispatch(fetchReviewerSheetData()),
+    moveToSelectedDriveFolder: () => dispatch(moveToSelectedDriveFolder())
 
 })
 
