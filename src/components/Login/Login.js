@@ -1,27 +1,44 @@
 import React from 'react';
 // import ReactDOM from 'react-dom'
-import GoogleLogin from 'react-google-login'
+import firebase from 'firebase'
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+require('firebase/auth')
 
+firebase.initializeApp({
+  apiKey: process.env.REACT_APP_GOOGLESHEETS_API_KEY,
+  authDomain: "mocc-277820.firebaseapp.com"
+})
 
 class Login extends React.Component{
+    state = { isSignedIn: false }
+    uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    ],
+    callbacks: {
+      signInSuccess: () => false
+    }
+  }
 
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ isSignedIn: !!user })
+      console.log("User", user)
+    })
+  }
     render(){
-        
-        const responseGoogle = (response) => {
-            console.log(response)
-        }
-
-        return (
-            <GoogleLogin 
-                clientId="63558733148-jle28klrgeg43np7dh5ug7170m75gc1k.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            />
+        return(
+            this.state.isSignedIn ? 
+            <div>
+                <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
+            </div>
+            :
+            <div>
+                <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+            </div>
         )
     }
-    
     
 }
 

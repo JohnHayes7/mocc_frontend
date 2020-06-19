@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from "react";
 import './App.css';
 import LandingPage from './components/LandingPage'
 import {BrowserRouter as Router, Route } from 'react-router-dom'
@@ -7,7 +7,6 @@ import QaProjectOverview from './components/QaProjectOverview'
 import Premiers from './components/Premiers'
 import Login from './components/Login/Login'
 import LoginCallback from './components/Login/LoginCallback'
-
 
 
 
