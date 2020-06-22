@@ -20,7 +20,7 @@ const SelectionInfo = props => {
     const totalAssignmentsByReviewer = assignmentsCompletedByReviewer().length + assignmentsNotCompletedByReviewer().length + props.count
 
     const selectedReviewerRowId = props.reviewers.find(r => r.name === selectedReviewer).rowId
-debugger    
+
     const clickHandler = event => {
         event.preventDefault()
         if(selectedReviewer !== "-"){
@@ -37,9 +37,7 @@ debugger
             }
             props.postSelectionDataToSheet(selectionData)
             props.postReviewerDataToSheet(reviewerData)
-            debugger
             props.moveToSelectedDriveFolder(selectionData)
-            // I WANT TO MOVE THE VIDEOS IN selectionData.selectedVideos TO selectionData.reveiewer 's DRIVE FOLDER
             alert(`You've assigned ${props.selectedVideos.length} videos to ${selectedReviewer}`)
             pageRefresh()
         }else{
